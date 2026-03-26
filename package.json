@@ -1,0 +1,14 @@
+{
+  "name": "aigents-com-ar",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host --open",
+    "build": "vite build",
+    "preview": "vite preview --host --port 4173 --open"
+  },
+  "devDependencies": {
+    "vite": "^8.0.1"
+  }
+}

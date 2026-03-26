@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html class="dark" lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>AIGENTS | INDUSTRIAL AI PRECISION</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed-variant": "#474747",
+              "surface-container-lowest": "#000000",
+              error: "#ffb4ab",
+              "surface-variant": "#000000",
+              "primary-container": "#50ffab",
+              "primary-fixed": "#53ffac",
+              "on-primary-fixed": "#002111",
+              secondary: "#c8c6c6",
+              "on-primary": "#003920",
+              background: "#000000",
+              "tertiary-container": "#ffe171",
+              "surface-container-highest": "#000000",
+              "outline-variant": "#3c4a40",
+              "on-secondary": "#303030",
+              surface: "#000000",
+              "secondary-container": "#111111",
+              "inverse-primary": "#006d42",
+              "on-tertiary-fixed-variant": "#554600",
+              "on-error-container": "#ffdad6",
+              "on-tertiary": "#3b3000",
+              "on-surface": "#e5e2e1",
+              "error-container": "#93000a",
+              "surface-container-high": "#000000",
+              "on-error": "#690005",
+              "on-background": "#e5e2e1",
+              "secondary-fixed": "#e4e2e1",
+              "inverse-on-surface": "#313030",
+              "tertiary-fixed": "#ffe171",
+              "on-primary-container": "#007347",
+              "secondary-fixed-dim": "#c8c6c6",
+              "on-tertiary-container": "#776300",
+              "surface-bright": "#111111",
+              "on-secondary-fixed": "#1b1c1c",
+              "primary-fixed-dim": "#20e291",
+              outline: "#859588",
+              "tertiary-fixed-dim": "#e1c558",
+              primary: "#ffffff",
+              "surface-container": "#000000",
+              "surface-tint": "#20e291",
+              "on-surface-variant": "#bacbbd",
+              "on-primary-fixed-variant": "#005231",
+              "inverse-surface": "#e5e2e1",
+              "surface-dim": "#000000",
+              "on-tertiary-fixed": "#221b00",
+              "on-secondary-container": "#b6b5b4",
+              tertiary: "#ffffff",
+              "surface-container-low": "#000000",
+            },
+            fontFamily: {
+              headline: ["Space Grotesk"],
+              body: ["Inter"],
+              label: ["Inter"],
+            },
+            borderRadius: {
+              DEFAULT: "0px",
+              lg: "0px",
+              xl: "0px",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-black text-on-background font-body selection:bg-primary-container selection:text-on-primary-fixed overflow-x-hidden">
+    <aside
+      class="fixed left-0 top-0 h-full flex flex-col items-center bg-black border-r-[0.5px] border-[#50FFAB]/20 w-20 h-screen z-50 font-['Space_Grotesk'] tracking-tight transition-transform duration-300 -translate-x-full md:translate-x-0"
+      id="sidebar"
+    >
+      <div class="py-12 flex flex-col items-center">
+        <span class="vertical-text text-2xl font-black text-[#50FFAB] uppercase tracking-tighter">AIGENTS</span>
+      </div>
+      <nav class="mt-8 flex-1 flex flex-col items-center gap-8 w-full">
+        <a
+          class="flex flex-col items-center gap-1 group py-4 w-full text-[#50FFAB] border-l-2 border-[#50FFAB] bg-[#50FFAB]/5 transition-all duration-150"
+          href="#soluciones"
+          onclick="toggleMobileMenu()"
+        >
+          <span class="material-symbols-outlined text-2xl" data-icon="precision_manufacturing">precision_manufacturing</span>
+          <span class="text-[9px] font-bold uppercase tracking-widest md:opacity-0 group-hover:opacity-100 transition-opacity" data-tr="nav_solutions"
+            >Soluciones</span
+          >
+        </a>
+        <a
+          class="flex flex-col items-center gap-1 group py-4 w-full text-zinc-500 hover:text-[#50FFAB] transition-all duration-150"
+          href="#desarrollo"
+          onclick="toggleMobileMenu()"
+        >
+          <span class="material-symbols-outlined text-2xl" data-icon="code_blocks">code_blocks</span>
+          <span class="text-[9px] font-bold uppercase tracking-widest md:opacity-0 group-hover:opacity-100 transition-opacity" data-tr="nav_dev"
+            >Desarrollo</span
+          >
+        </a>
+        <a
+          class="flex flex-col items-center gap-1 group py-4 w-full text-zinc-500 hover:text-[#50FFAB] transition-all duration-150"
+          href="#conexiones"
+          onclick="toggleMobileMenu()"
+        >
+          <span class="material-symbols-outlined text-2xl" data-icon="hub">hub</span>
+          <span class="text-[9px] font-bold uppercase tracking-widest md:opacity-0 group-hover:opacity-100 transition-opacity" data-tr="nav_conn"
+            >Conexiones</span
+          >
+        </a>
+      </nav>
+      <div class="pb-8 flex flex-col items-center gap-6">
+        <div class="flex flex-col items-center gap-2">
+          <div class="w-1 h-1 rounded-full bg-primary-container animate-pulse"></div>
+          <span class="vertical-text text-[9px] text-primary-container font-bold uppercase tracking-widest" data-tr="status_active">Active</span>
+        </div>
+        <div class="h-[0.5px] w-8 bg-white/10"></div>
+        <div class="w-8 h-8 bg-zinc-900 flex items-center justify-center">
+          <span class="material-symbols-outlined text-xs text-zinc-500" data-icon="sensors">sensors</span>
+        </div>
+      </div>
+    </aside>
+
+    <header class="fixed top-0 right-0 left-0 md:left-20 h-16 flex items-center justify-between px-4 md:px-8 z-40 bg-black/60 backdrop-blur-xl border-b-[0.5px] border-[#50FFAB]/10 font-['Space_Grotesk']">
+      <div class="flex items-center gap-2">
+        <button class="md:hidden text-[#50FFAB] p-2" onclick="toggleMobileMenu()">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+        <div class="hidden xs:flex items-center gap-2">
+          <span class="text-[10px] text-zinc-500 uppercase tracking-widest" data-tr="protocol_label">Protocol:</span>
+          <span class="text-[10px] text-[#50FFAB] uppercase font-bold">AIG_MAIN_NODE_2026</span>
+        </div>
+      </div>
+      <div class="flex items-center gap-4 md:gap-6">
+        <button class="text-xs font-bold text-zinc-400 hover:text-[#50FFAB] transition-all tracking-widest" id="lang-toggle">EN/ES</button>
+        <div class="flex gap-2 md:gap-4">
+          <button class="text-zinc-400 hover:text-[#50FFAB] transition-all">
+            <span class="material-symbols-outlined" data-icon="sensors">sensors</span>
+          </button>
+          <button class="text-zinc-400 hover:text-[#50FFAB] transition-all hidden sm:block">
+            <span class="material-symbols-outlined" data-icon="settings_suggest">settings_suggest</span>
+          </button>
+        </div>
+        <div class="h-8 w-8 bg-zinc-900 border-[0.5px] border-white/10 flex items-center justify-center overflow-hidden">
+          <img
+            alt="User profile"
+            class="w-full h-full object-cover grayscale"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdBbrKYpDlqDfN1X8tJlxmfqlVEBII8Dy4zAQxuGb5kZSZrE9tdvoYEj_PB3laZBsK8dQVg13D2rPjD3BFOJhk7b1yIpFe4TZaU6M1mx9F7-2-X3MVzXw3v-Mqdrxmzi80gju3UcZyrJ3tVWOtrTVApERWcc2MUhPm1LgstC0StV7fb0WNjblaXZhBlqzXPixfxDoc-x5mO25T3dYw1THPrfGVrjvyl5F-WZybLMcSk8WND4u9RiXGOipo37nEVUWW1-Z9hpO_-wQ"
+          />
+        </div>
+      </div>
+    </header>
+
+    <main class="ml-0 md:ml-20 pt-16 bg-black">
+      <section class="relative min-h-[90vh] flex flex-col justify-center px-6 md:px-12 border-b-[0.5px] border-white/5 overflow-hidden" id="hero">
+        <div class="scanline"></div>
+        <div class="max-w-4xl z-20">
+          <div class="flex items-center gap-4 mb-8">
+            <span class="h-[1px] w-12 bg-primary-container"></span>
+            <span class="text-[12px] font-label uppercase tracking-[0.4em] text-primary-container" data-tr="hero_v">System Initialization v4.0</span>
+          </div>
+          <h1 class="font-headline text-4xl sm:text-6xl md:text-8xl font-bold leading-[1.1] md:leading-[0.9] tracking-tighter mb-12 text-white">
+            <span data-tr="hero_title_1">INFRAESTRUCTURA DE</span> <span class="text-primary-container italic" data-tr="hero_title_2">INTELIGENCIA</span>
+            <span data-tr="hero_title_3">ARTIFICIAL DE PRECISION</span>
+          </h1>
+          <div class="flex flex-col md:flex-row flex-wrap gap-8 items-start">
+            <button
+              class="w-full md:w-auto bg-primary-container text-black px-10 py-5 text-sm font-bold uppercase tracking-widest hover:bg-white transition-all active:scale-95"
+              data-tr="btn_deploy"
+              onclick="document.getElementById('auth-modal').classList.remove('hidden'); document.getElementById('auth-modal').classList.add('flex')"
+            >
+              DESPLEGAR_SISTEMA()
+            </button>
+            <div class="max-w-xs">
+              <p class="text-zinc-500 text-sm leading-relaxed mb-4" data-tr="hero_desc">
+                Sistemas autonomos disenados para la industria pesada y la optimizacion de procesos criticos. Eficiencia absoluta 24/7.
+              </p>
+              <div class="flex items-center gap-2">
+                <span class="text-[10px] text-zinc-600 font-mono">LATENCY: 0.002MS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="absolute bottom-12 left-6 md:left-12 flex items-center gap-4 animate-bounce">
+          <span class="material-symbols-outlined text-zinc-700" data-icon="south">south</span>
+          <span class="text-[10px] uppercase tracking-[0.3em] text-zinc-700" data-tr="hero_scroll">Scroll for data</span>
+        </div>
+
+        <div class="absolute top-0 right-0 w-full md:w-1/2 h-full -z-10 opacity-10 md:opacity-20">
+          <img
+            alt="Tech background"
+            class="w-full h-full object-cover grayscale"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAfYndd5MF4ifuwhSEN5LJYqQjrODOi-9vUG97nw80YrMX8K9CGYgi10Gpe70EhMR9jDWW7It8RACvOS0bWyYdhcUYrd7AEBsympLV_3ukAotRnWy1n1We3rEgN1N1GE0724JA_VszNlSBZJ2DPSwkA_JF_TV5fpxZy1q5Vn5pBNvD6KweqmTjFXPuxmwYPu8hXRgHmuED-caRkiTvQo-brgCAWp56v3GsrUwvhNjDTZ4P4Ffr9-qv3d-ok2awzFopW2Cq9n-1YQaU"
+          />
+        </div>
+      </section>
+
+      <section class="px-6 md:px-12 py-20 md:py-32 bg-black" id="soluciones">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 md:mb-24 gap-4">
+          <div class="max-w-xl">
+            <h2 class="font-headline text-3xl md:text-4xl font-bold mb-6 text-white uppercase" data-tr="sol_title">UNIDADES_OPERATIVAS</h2>
+            <p class="text-zinc-500 leading-relaxed uppercase text-xs tracking-widest" data-tr="sol_desc">
+              Clasificacion de agentes segun arquitectura de red y capacidad de computo.
+            </p>
+          </div>
+          <div class="text-right hidden md:block">
+            <span class="text-6xl font-headline font-bold text-zinc-900">01</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-[0.5px] bg-[#50FFAB]/10">
+          <div class="bg-black p-8 md:p-12 group hover:bg-[#080808] transition-all duration-300 border-[0.5px] border-white/5">
+            <div class="mb-12 flex justify-between items-start">
+              <div class="w-16 h-16 border-[0.5px] border-primary-container flex items-center justify-center text-primary-container group-hover:bg-primary-container group-hover:text-black transition-all">
+                <span class="material-symbols-outlined text-3xl" data-icon="corporate_fare">corporate_fare</span>
+              </div>
+              <span class="text-[10px] text-zinc-700 font-mono">MODEL: E-V01</span>
+            </div>
+            <h3 class="font-headline text-2xl font-bold mb-4 text-white" data-tr="ent_title">Agentes Empresariales</h3>
+            <p class="text-zinc-500 mb-8 text-sm leading-relaxed" data-tr="ent_desc">
+              Infraestructura escalable para el procesamiento masivo de datos industriales, automatizacion de supply-chain y analisis predictivo de mercados.
+            </p>
+            <ul class="space-y-4 mb-12">
+              <li class="flex items-center gap-3 text-[10px] uppercase tracking-widest text-zinc-400">
+                <span class="w-1 h-1 bg-primary-container"></span>
+                <span data-tr="ent_f1">Integracion SAP/ERP</span>
+              </li>
+              <li class="flex items-center gap-3 text-[10px] uppercase tracking-widest text-zinc-400">
+                <span class="w-1 h-1 bg-primary-container"></span>
+                <span data-tr="ent_f2">Seguridad Militar AES-256</span>
+              </li>
+            </ul>
+            <button class="text-[10px] font-bold text-primary-container border-b-[0.5px] border-primary-container pb-1 hover:tracking-[0.2em] transition-all uppercase" data-tr="btn_catalog">
+              CONSULTAR_CATALOGO()
+            </button>
+          </div>
+
+          <div class="bg-black p-8 md:p-12 group hover:bg-[#080808] transition-all duration-300 border-[0.5px] border-white/5">
+            <div class="mb-12 flex justify-between items-start">
+              <div class="w-16 h-16 border-[0.5px] border-primary-container flex items-center justify-center text-primary-container group-hover:bg-primary-container group-hover:text-black transition-all">
+                <span class="material-symbols-outlined text-3xl" data-icon="psychology">psychology</span>
+              </div>
+              <span class="text-[10px] text-zinc-700 font-mono">MODEL: J-V09</span>
+            </div>
+            <h3 class="font-headline text-2xl font-bold mb-4 text-white" data-tr="jar_title">Agentes Jarvis</h3>
+            <p class="text-zinc-500 mb-8 text-sm leading-relaxed" data-tr="jar_desc">
+              Asistentes personales de alta fidelidad. Interfaz neural optimizada para gestion de flujos creativos, investigacion tecnica y ejecucion de tareas inteligentes.
+            </p>
+            <ul class="space-y-4 mb-12">
+              <li class="flex items-center gap-3 text-[10px] uppercase tracking-widest text-zinc-400">
+                <span class="w-1 h-1 bg-primary-container"></span>
+                <span data-tr="jar_f1">NLP de Baja Latencia</span>
+              </li>
+              <li class="flex items-center gap-3 text-[10px] uppercase tracking-widest text-zinc-400">
+                <span class="w-1 h-1 bg-primary-container"></span>
+                <span data-tr="jar_f2">Aprendizaje Contextual</span>
+              </li>
+            </ul>
+            <button class="text-[10px] font-bold text-primary-container border-b-[0.5px] border-primary-container pb-1 hover:tracking-[0.2em] transition-all uppercase" data-tr="btn_config">
+              CONFIGURAR_NUCLEO()
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="px-6 md:px-12 py-20 md:py-32 bg-black" id="conexiones">
+        <h2 class="font-headline text-3xl md:text-4xl font-bold mb-16 md:mb-24 text-center text-white uppercase" data-tr="prot_title">PROTOCOLOS_DE_EJECUCION</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-16">
+          <div class="relative pt-8">
+            <div class="text-4xl md:text-6xl font-headline font-bold text-zinc-900 mb-8 absolute -top-4 left-0">01</div>
+            <h4 class="text-primary-container text-[10px] uppercase tracking-[0.4em] mb-4" data-tr="prot_1_label">Extraccion</h4>
+            <p class="text-zinc-500 text-sm leading-relaxed" data-tr="prot_1_desc">Sifonamiento de datos crudos desde terminales IoT y bases de datos legadas.</p>
+            <div class="mt-8 h-[0.5px] bg-white/5 w-full relative">
+              <div class="absolute top-0 left-0 h-[2px] bg-primary-container w-1/3"></div>
+            </div>
+          </div>
+          <div class="relative pt-8">
+            <div class="text-4xl md:text-6xl font-headline font-bold text-zinc-900 mb-8 absolute -top-4 left-0">02</div>
+            <h4 class="text-primary-container text-[10px] uppercase tracking-[0.4em] mb-4" data-tr="prot_2_label">Sintesis</h4>
+            <p class="text-zinc-500 text-sm leading-relaxed" data-tr="prot_2_desc">Refinamiento a traves de modelos LLM propietarios y capas de logica industrial.</p>
+            <div class="mt-8 h-[0.5px] bg-white/5 w-full relative">
+              <div class="absolute top-0 left-0 h-[2px] bg-primary-container w-2/3"></div>
+            </div>
+          </div>
+          <div class="relative pt-8">
+            <div class="text-4xl md:text-6xl font-headline font-bold text-zinc-900 mb-8 absolute -top-4 left-0">03</div>
+            <h4 class="text-primary-container text-[10px] uppercase tracking-[0.4em] mb-4" data-tr="prot_3_label">Despliegue</h4>
+            <p class="text-zinc-500 text-sm leading-relaxed" data-tr="prot_3_desc">Inyeccion de agentes en el entorno operativo con permisos de escritura segura.</p>
+            <div class="mt-8 h-[0.5px] bg-white/5 w-full relative">
+              <div class="absolute top-0 left-0 h-[2px] bg-primary-container w-full"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="px-6 md:px-12 py-20 md:py-32 bg-black border-t border-white/5 relative overflow-hidden" id="desarrollo">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 md:gap-24 relative z-10">
+          <div>
+            <span class="text-primary-container text-[10px] uppercase tracking-[0.4em] mb-4 block">Engine Lab v4.0</span>
+            <h2 class="font-headline text-3xl md:text-5xl font-bold mb-8 text-white uppercase" data-tr="dev_title">SINTETIZADOR_DE_AGENTES</h2>
+            <p class="text-zinc-500 mb-12 max-w-md" data-tr="dev_desc">
+              Configure el ADN tecnico de su unidad operativa. Seleccione rasgos de comportamiento y herramientas de ejecucion.
+            </p>
+            <div class="space-y-12">
+              <div>
+                <div class="text-[10px] text-zinc-600 uppercase tracking-widest mb-6" data-tr="dev_traits_label">Rasgos de Personalidad (Select 2)</div>
+                <div class="flex flex-wrap gap-4" id="traits-container">
+                  <button class="trait-btn px-6 py-3 border-[0.5px] border-primary-container bg-primary-container/10 text-primary-container text-xs font-bold uppercase tracking-widest transition-all" data-tr="trait_analitico" type="button">
+                    Analitico
+                  </button>
+                  <button class="trait-btn px-6 py-3 border-[0.5px] border-primary-container bg-primary-container/10 text-primary-container text-xs font-bold uppercase tracking-widest transition-all" data-tr="trait_proactivo" type="button">
+                    Proactivo
+                  </button>
+                  <button class="trait-btn px-6 py-3 border-[0.5px] border-white/10 text-zinc-600 text-xs font-bold uppercase tracking-widest hover:border-white/40 transition-all" data-tr="trait_creativo" type="button">
+                    Creativo
+                  </button>
+                  <button class="trait-btn px-6 py-3 border-[0.5px] border-white/10 text-zinc-600 text-xs font-bold uppercase tracking-widest hover:border-white/40 transition-all" data-tr="trait_diplomatico" type="button">
+                    Diplomatico
+                  </button>
+                </div>
+              </div>
+              <div>
+                <div class="text-[10px] text-zinc-600 uppercase tracking-widest mb-6" data-tr="dev_tools_label">Herramientas &amp; Frameworks (Select 3)</div>
+                <div class="flex flex-wrap gap-4" id="tools-container">
+                  <button class="tool-btn px-6 py-3 border-[0.5px] border-primary-container bg-primary-container/10 text-primary-container text-xs font-bold uppercase tracking-widest transition-all" type="button">Python</button>
+                  <button class="tool-btn px-6 py-3 border-[0.5px] border-primary-container bg-primary-container/10 text-primary-container text-xs font-bold uppercase tracking-widest transition-all" type="button">SQL</button>
+                  <button class="tool-btn px-6 py-3 border-[0.5px] border-primary-container bg-primary-container/10 text-primary-container text-xs font-bold uppercase tracking-widest transition-all" type="button">API Rest</button>
+                  <button class="tool-btn px-6 py-3 border-[0.5px] border-white/10 text-zinc-600 text-xs font-bold uppercase tracking-widest hover:border-white/40 transition-all" type="button">Docker</button>
+                  <button class="tool-btn px-6 py-3 border-[0.5px] border-white/10 text-zinc-600 text-xs font-bold uppercase tracking-widest hover:border-white/40 transition-all" type="button">Rust</button>
+                </div>
+              </div>
+              <button class="w-full sm:w-auto inline-block bg-primary-container text-black px-12 py-5 text-sm font-bold uppercase tracking-widest hover:bg-white transition-all" data-tr="btn_synthesize" type="button">
+                SINTETIZAR_AGENTE()
+              </button>
+            </div>
+          </div>
+          <div class="bg-black border-[0.5px] border-white/10 p-1 font-mono">
+            <div class="bg-black p-4 md:p-6 flex flex-col gap-4 min-h-[400px] md:min-h-[450px] border border-white/5 overflow-x-auto">
+              <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                <span class="text-zinc-700 text-[10px]">LIVE_COMPILATION_OUTPUT</span>
+                <div class="flex gap-2">
+                  <div class="w-2 h-2 rounded-full bg-red-500/30"></div>
+                  <div class="w-2 h-2 rounded-full bg-yellow-500/30"></div>
+                  <div class="w-2 h-2 rounded-full bg-green-500/30"></div>
+                </div>
+              </div>
+              <div class="text-[11px] text-zinc-600 space-y-2 whitespace-nowrap">
+                <p class="text-primary-container">&gt; Initializing AIG_GENESIS_CORE...</p>
+                <p>&gt; Loading personality_matrix [Analitico, Proactivo]</p>
+                <p>&gt; Injecting toolsets: [Python_3.12, SQL_v8, Rest_Auth_v2]</p>
+                <p>&gt; Compiling neural paths...</p>
+                <p class="text-zinc-400 animate-pulse">&gt; Ready for Operator Directives.</p>
+                <div class="mt-8 border-l-[2px] border-primary-container pl-4 py-4 bg-primary-container/5">
+                  <p class="text-primary-container font-bold">AGENT_DNA_ID: #772-B-ALPHA</p>
+                  <p class="text-primary-container">STATUS: AWAITING_REGISTRATION</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="px-6 md:px-12 py-20 md:py-32 bg-black border-t border-white/5" id="registro">
+        <div class="max-w-4xl mx-auto">
+          <div class="text-center mb-16 md:mb-24">
+            <h2 class="font-headline text-3xl md:text-4xl font-bold mb-6 text-white uppercase" data-tr="reg_title">REGISTRO_DE_OPERADOR</h2>
+            <p class="text-zinc-500 uppercase text-xs tracking-[0.2em]" data-tr="reg_desc">Vincule su identidad biometrica para el control de la unidad.</p>
+          </div>
+          <form class="space-y-12" onsubmit="event.preventDefault()">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+              <div class="space-y-2">
+                <label class="text-[10px] text-zinc-600 uppercase tracking-widest block" data-tr="form_name">Operator Name</label>
+                <input class="w-full bg-black border-0 border-b-[0.5px] border-white/10 focus:border-primary-container focus:ring-0 text-white py-4 px-0 transition-all font-mono placeholder-zinc-800" placeholder="G. CONSTANTIN" type="text" />
+              </div>
+              <div class="space-y-2">
+                <label class="text-[10px] text-zinc-600 uppercase tracking-widest block" data-tr="form_email">Email Address</label>
+                <input class="w-full bg-black border-0 border-b-[0.5px] border-white/10 focus:border-primary-container focus:ring-0 text-white py-4 px-0 transition-all font-mono placeholder-zinc-800" placeholder="OPERATOR@AIGENTS.COM.AR" type="email" />
+              </div>
+            </div>
+            <div class="space-y-2">
+              <label class="text-[10px] text-zinc-600 uppercase tracking-widest block" data-tr="form_directives">Agent Directives</label>
+              <textarea
+                class="w-full bg-black border-0 border-b-[0.5px] border-white/10 focus:border-primary-container focus:ring-0 text-white py-4 px-0 transition-all font-mono placeholder-zinc-800"
+                data-tr-placeholder="form_directives_ph"
+                placeholder="Defina los objetivos primarios de la unidad operativa..."
+                rows="4"
+              ></textarea>
+            </div>
+            <div class="flex items-center gap-4 py-8">
+              <input class="w-4 h-4 rounded-none bg-black border-white/20 text-primary-container focus:ring-0" id="terms-check" type="checkbox" />
+              <label class="text-[10px] text-zinc-600 uppercase tracking-widest cursor-pointer hover:text-zinc-400" data-tr="form_terms" for="terms-check"
+                >Acepto los Protocolos de Transmision y Uso Etico.</label
+              >
+            </div>
+            <button class="w-full bg-white text-black py-6 text-sm font-bold uppercase tracking-[0.3em] hover:bg-primary-container transition-all" data-tr="btn_submit" type="submit">
+              ENVIAR_SOLICITUD_DE_ENLACE
+            </button>
+          </form>
+        </div>
+      </section>
+
+      <section class="px-6 md:px-12 py-20 md:py-40 text-center relative overflow-hidden bg-black border-t border-white/5">
+        <h2 class="font-headline text-4xl md:text-6xl font-bold mb-12 tracking-tighter text-white uppercase" data-tr="ready_title">SISTEMA LISTO PARA EL DESPEGUE?</h2>
+        <button
+          class="group relative px-10 md:px-16 py-6 md:py-8 bg-black border-[0.5px] border-primary-container overflow-hidden w-full md:w-auto"
+          onclick="document.getElementById('auth-modal').classList.remove('hidden'); document.getElementById('auth-modal').classList.add('flex')"
+        >
+          <div class="absolute inset-0 bg-primary-container translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
+          <span class="relative z-10 text-primary-container group-hover:text-black font-bold uppercase tracking-[0.4em] text-lg" data-tr="btn_sequence">INICIAR_SECUENCIA</span>
+        </button>
+        <div class="mt-24 flex flex-wrap justify-center items-center gap-8 md:gap-12 opacity-10 grayscale hover:opacity-40 transition-all duration-700">
+          <img
+            alt="Partner Logo"
+            class="h-4 md:h-6"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAoraz8FATn1EKUuOrwlBnnlNDSpMfWLVsQjKrnXyDlQkZ19gzZ3Y4AxdWcjEjEvQjdTaGCxc741Oh8t41QH4tDhdvyjWxD3C93Qw74VCDpodmZmOYLM1tqcYGaPP12CdH91WEKBAboFccnMTPTgG9n-PZPNuBFxwP_JsntmpioJyKXuPAjUMlZV-PKPQzuxnqrICt_34rdQEZqG-_8DJxvQxZ7UsNolU6wROP43n8WulNLoU2Qsa9U-PtOMS4TzDiexhaBNeDMBl4"
+          />
+          <img
+            alt="Partner Logo"
+            class="h-4 md:h-6"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAmSIOlYImS466mhaJNLyZYVa_JuiaJtAvpBfg9c6XDr2FRt2SjH26Ectdj_a48JoTPv1bfgdYFaBoVM9bKV2WvMX18QeFSp8jLrm6v5x_AIIPt2pqgrzsPnNFJaF1__cHaZ13hZ6V3zzE42ZowQqAa4t4miJaj1ci5QdHLMxURuKe6LVUetbhNnslFQQvxGoIkonom1TsBCHymCBAOiG4dDXfFdzrUH3CqnnNYy6iiSl72wF6kKHkVr452hLTlRO0AAGMN2OAgf94"
+          />
+          <img
+            alt="Partner Logo"
+            class="h-4 md:h-6"
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBspNtKj0tdR-w3dcyeWmLT1SowmAdSTI_BcFCZifmfQLoSZO4zbubjVxsnW2WI-fyz0v0iyylZ8h_r7Aup-WFaN9BVMOSpmSXfCq6CZPdRwCRwodXwn2_M8qzEke6KB_yKt_ps0OsDenB9vvGuXle2zP-gbnLMjotONcKC1y0T3LB7GmDUhZt660RMX8qzG3FAHQ4BmpL6r8LGD0pl7rpC0FesvQ67gZB8yX-yRTACzQRCz0a-PnqFtsSHHyscAcOLbKVxzM_R8zo"
+          />
+        </div>
+      </section>
+
+      <footer class="p-8 md:p-12 flex flex-col md:flex-row justify-between items-center w-full bg-black border-t border-white/10 font-['Inter'] text-[10px] uppercase tracking-[0.1em] gap-8">
+        <div class="flex flex-col md:flex-row items-center gap-8 text-center md:text-left">
+          <span class="text-[#50FFAB] font-bold text-sm tracking-tighter" data-tr="footer_copy">© 2026 AIGENTS PLATFORM. PRECISION ENGINEERING.</span>
+          <div class="flex gap-6">
+            <a class="text-zinc-600 hover:text-[#50FFAB] transition-colors" href="#registro">Legal</a>
+            <a class="text-zinc-600 hover:text-[#50FFAB] transition-colors" href="#registro">Privacy</a>
+          </div>
+        </div>
+        <div class="flex flex-col sm:flex-row items-center gap-6">
+          <div class="flex items-center gap-2">
+            <div class="w-1.5 h-1.5 rounded-full bg-primary-container animate-pulse"></div>
+            <span class="text-zinc-500" data-tr="footer_metrics">System Metrics: 99.9% Up</span>
+          </div>
+          <span class="text-zinc-700">CO/2026.AR</span>
+        </div>
+      </footer>
+    </main>
+
+    <div class="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl hidden items-center justify-center p-4" id="auth-modal">
+      <div class="bg-black border-[0.5px] border-[#50FFAB]/30 w-full max-w-md p-8 md:p-12 relative shadow-[0_0_100px_rgba(80,255,171,0.1)]">
+        <button
+          class="absolute top-6 right-6 text-zinc-600 hover:text-white transition-colors"
+          onclick="document.getElementById('auth-modal').classList.add('hidden'); document.getElementById('auth-modal').classList.remove('flex')"
+        >
+          <span class="material-symbols-outlined" data-icon="close">close</span>
+        </button>
+        <div class="mb-12">
+          <h3 class="font-headline text-2xl font-bold mb-2 text-white uppercase tracking-tight" data-tr="modal_title">AUTENTICACION_REQUERIDA</h3>
+          <p class="text-[10px] text-zinc-600 uppercase tracking-widest" data-tr="modal_desc">Ingrese credenciales de seguridad nivel 4.</p>
+        </div>
+        <form class="space-y-8" onsubmit="event.preventDefault()">
+          <div class="space-y-1">
+            <label class="text-[9px] text-zinc-700 uppercase tracking-[0.3em]">Operator_ID</label>
+            <input class="w-full bg-black border-[0.5px] border-white/10 p-4 font-mono text-sm text-white focus:border-primary-container focus:ring-0 transition-all uppercase" placeholder="OP_772" type="text" />
+          </div>
+          <div class="space-y-1">
+            <label class="text-[9px] text-zinc-700 uppercase tracking-[0.3em]">Security_Token</label>
+            <input class="w-full bg-black border-[0.5px] border-white/10 p-4 font-mono text-sm text-white focus:border-primary-container focus:ring-0 transition-all" placeholder="••••••••" type="password" />
+          </div>
+          <button class="w-full bg-primary-container text-black py-5 font-bold uppercase tracking-widest text-xs hover:bg-white transition-all" data-tr="btn_unlock" type="button">
+            DESBLOQUEAR_ACCESO
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

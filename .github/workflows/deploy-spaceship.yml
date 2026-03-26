@@ -1,0 +1,43 @@
+name: Deploy Spaceship
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Simular deploy sin subir archivos"
+        required: true
+        default: "true"
+        type: choice
+        options:
+          - "true"
+          - "false"
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload dist to Spaceship (FTP/FTPS)
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.SPACESHIP_FTP_SERVER }}
+          username: ${{ secrets.SPACESHIP_FTP_USERNAME }}
+          password: ${{ secrets.SPACESHIP_FTP_PASSWORD }}
+          local-dir: dist/
+          server-dir: ${{ secrets.SPACESHIP_FTP_SERVER_DIR }}
+          dry-run: ${{ inputs.dry_run }}
