@@ -39,5 +39,5 @@ jobs:
           username: ${{ secrets.SPACESHIP_FTP_USERNAME }}
           password: ${{ secrets.SPACESHIP_FTP_PASSWORD }}
           local-dir: dist/
-          server-dir: ${{ secrets.SPACESHIP_FTP_SERVER_DIR }}
+          server-dir: ${{ secrets.SPACESHIP_FTP_SERVER_DIR }}/
           dry-run: ${{ inputs.dry_run }}
