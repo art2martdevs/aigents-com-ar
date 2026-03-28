@@ -6,11 +6,24 @@ on:
       dry_run:
         description: "Simular deploy sin subir archivos"
         required: true
-        default: "true"
+        default: "false"
         type: choice
         options:
-          - "true"
           - "false"
+          - "true"
+      server_dir:
+        description: "Directorio remoto de destino"
+        required: true
+        default: "/"
+        type: string
+      clean_remote:
+        description: "Limpiar archivos remotos del directorio destino antes de subir"
+        required: true
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
 
 jobs:
   deploy:
@@ -39,5 +52,6 @@ jobs:
           username: ${{ secrets.SPACESHIP_FTP_USERNAME }}
           password: ${{ secrets.SPACESHIP_FTP_PASSWORD }}
           local-dir: dist/
-          server-dir: ${{ secrets.SPACESHIP_FTP_SERVER_DIR }}/
+          server-dir: ${{ inputs.server_dir }}/
           dry-run: ${{ inputs.dry_run }}
+          dangerous-clean-slate: ${{ inputs.clean_remote }}

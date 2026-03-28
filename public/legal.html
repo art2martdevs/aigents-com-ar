@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Legal | AIGENTS</title>
+    <style>
+      :root {
+        --bg: #050505;
+        --panel: #0d0d0d;
+        --line: #1f1f1f;
+        --text: #e7e7e7;
+        --muted: #a1a1a1;
+        --brand: #50ffab;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        background: radial-gradient(circle at top right, rgba(80, 255, 171, 0.12), transparent 40%), var(--bg);
+        color: var(--text);
+        font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      }
+
+      a {
+        color: var(--brand);
+      }
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--brand);
+        outline-offset: 2px;
+      }
+
+      .wrap {
+        width: min(960px, 92vw);
+        margin: 0 auto;
+        padding: 32px 0 64px;
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        border-bottom: 1px solid var(--line);
+        padding: 16px 0;
+        margin-bottom: 28px;
+      }
+
+      .top-left {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .brand {
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--brand);
+      }
+
+      .back {
+        text-decoration: none;
+        font-size: 14px;
+      }
+
+      .topnav {
+        display: flex;
+        gap: 8px;
+      }
+
+      .topnav a {
+        text-decoration: none;
+        border: 1px solid var(--line);
+        color: #d0d0d0;
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        padding: 7px 10px;
+      }
+
+      .topnav a.active,
+      .topnav a:hover {
+        color: #001b10;
+        background: var(--brand);
+        border-color: var(--brand);
+      }
+
+      .card {
+        background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0));
+        border: 1px solid var(--line);
+        padding: 24px;
+      }
+
+      h1,
+      h2,
+      h3 {
+        line-height: 1.2;
+      }
+
+      h1 {
+        margin: 0 0 12px;
+        font-size: clamp(28px, 3.8vw, 44px);
+      }
+
+      h2 {
+        margin-top: 30px;
+        font-size: 22px;
+      }
+
+      p,
+      li {
+        color: var(--muted);
+        line-height: 1.7;
+      }
+
+      ul {
+        padding-left: 18px;
+      }
+
+      .tag {
+        display: inline-block;
+        margin-bottom: 12px;
+        border: 1px solid var(--brand);
+        color: var(--brand);
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        padding: 6px 10px;
+      }
+
+      .note {
+        border-left: 3px solid var(--brand);
+        padding-left: 12px;
+        margin-top: 18px;
+      }
+
+      footer {
+        margin-top: 32px;
+        border-top: 1px solid var(--line);
+        padding-top: 14px;
+        color: #8a8a8a;
+        font-size: 13px;
+      }
+
+      @media (max-width: 760px) {
+        .topbar {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .top-left {
+          width: 100%;
+          justify-content: space-between;
+        }
+
+        .topnav {
+          width: 100%;
+          flex-wrap: wrap;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <header class="topbar">
+        <div class="top-left">
+          <div class="brand">AIGENTS</div>
+          <a class="back" href="./" aria-label="Volver al inicio de AIGENTS">Volver al inicio</a>
+        </div>
+        <nav class="topnav" aria-label="Navegacion legal">
+          <a href="./">Home</a>
+          <a class="active" href="./legal.html" aria-current="page">Legal</a>
+          <a href="./privacy.html">Privacy</a>
+        </nav>
+      </header>
+
+      <article class="card" aria-labelledby="legal-title">
+        <span class="tag">Informacion Legal</span>
+        <h1 id="legal-title">Terminos y Condiciones de Uso</h1>
+        <p>
+          Fecha de ultima actualizacion: 28/03/2026. Este documento regula el acceso y uso del sitio web AIGENTS y de cualquier
+          contenido, funcionalidad o material publicado en este dominio.
+        </p>
+
+        <h2>1. Titularidad</h2>
+        <p>
+          El sitio es operado por AIGENTS. Todas las referencias a "AIGENTS", "nosotros" o "nuestro" en este documento se
+          refieren al titular y operador del servicio digital.
+        </p>
+
+        <h2>2. Marca y Propiedad Intelectual</h2>
+        <p>
+          AIGENTS es una Marca Registrada en Argentina. Su denominacion, identidad visual, elementos distintivos, material
+          grafico, textos, codigo y contenidos relacionados se encuentran protegidos por la legislacion vigente en materia de
+          propiedad intelectual, marcas y derechos de autor.
+        </p>
+        <p class="note">
+          Queda prohibida la reproduccion, imitacion, distribucion, modificacion o uso comercial no autorizado de la marca AIGENTS
+          y de cualquier contenido de este sitio.
+        </p>
+
+        <h2>3. Uso permitido del sitio</h2>
+        <p>Al utilizar este sitio, usted se compromete a:</p>
+        <ul>
+          <li>Realizar un uso licito, responsable y conforme a la normativa aplicable.</li>
+          <li>No interferir con la seguridad, disponibilidad o integridad de la plataforma.</li>
+          <li>No ejecutar actividades de scraping, fraude, suplantacion o acceso no autorizado.</li>
+          <li>No usar el contenido para crear productos o servicios engañosamente similares.</li>
+        </ul>
+
+        <h2>4. Alcance informativo</h2>
+        <p>
+          El contenido del sitio tiene finalidad institucional, informativa y comercial general. Salvo indicacion expresa y por
+          escrito, no constituye asesoramiento legal, tecnico o financiero vinculante.
+        </p>
+
+        <h2>5. Limitacion de responsabilidad</h2>
+        <p>
+          AIGENTS realiza esfuerzos razonables para mantener la informacion actualizada y el sitio disponible. Sin embargo, no
+          garantiza ausencia de interrupciones, errores tecnicos, incompatibilidades o variaciones de contenido. En la maxima medida
+          permitida por la ley, AIGENTS no sera responsable por daños indirectos, lucro cesante o perdidas derivadas del uso del
+          sitio.
+        </p>
+
+        <h2>6. Enlaces de terceros</h2>
+        <p>
+          Este sitio puede incluir enlaces externos. AIGENTS no controla ni asume responsabilidad sobre contenido, politicas o
+          practicas de sitios de terceros.
+        </p>
+
+        <h2>7. Modificaciones</h2>
+        <p>
+          AIGENTS puede actualizar estos terminos en cualquier momento. La version vigente sera la publicada en esta pagina y regira
+          desde su fecha de actualizacion.
+        </p>
+
+        <h2>8. Jurisdiccion y ley aplicable</h2>
+        <p>
+          Estos terminos se rigen por las leyes de la Republica Argentina. Cualquier controversia sera sometida a la jurisdiccion
+          competente conforme a la normativa aplicable.
+        </p>
+
+        <h2>9. Contacto legal</h2>
+        <p>
+          Para consultas legales o solicitudes relacionadas con propiedad intelectual y uso de marca, puede comunicarse mediante los
+          canales oficiales publicados por AIGENTS.
+        </p>
+
+        <footer>
+          © 2026 AIGENTS. Todos los derechos reservados. AIGENTS es una Marca Registrada en Argentina.
+        </footer>
+      </article>
+    </main>
+  </body>
+</html>
